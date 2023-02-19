@@ -6,9 +6,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <h1>Está funcionado perfeitamente!</h1>
-    </div>
+    
     <div className="App">
       <div>
         <a href="https://vitejs.dev" target="_blank">
@@ -18,6 +16,9 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+      <div>
+      <h1>Está funcionado perfeitamente!</h1>
+    </div>
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
