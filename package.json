@@ -1,15 +1,11 @@
 {
-  "homepage": "http://sergiomerces.github.io/lista-tarefas",
   "name": "lista-tarefas",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "dev": "vite",
-    "build": "react-scripts build",
-    "test": "reacy-scripts test",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
