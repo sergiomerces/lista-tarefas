@@ -6,3 +6,9 @@ body {
     background-color: #222435;
     font: normal 16px Roboto, sans-serif;
 }
+
+h1 {
+    font-weight: 900;
+    color: #7d83b8;
+    text-align: center;
+}
