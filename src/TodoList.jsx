@@ -15,11 +15,11 @@ function TodoList() {
             <div className="lista-tarefas">
                 <div className="item">
                     <span>Tarefa de Exemplo</span>
-                    <button>Deletar</button>
+                    <button className="del">Deletar</button>
                 </div>
                 <div className="item-completo">
                     <span>Tarefa de Exemplo</span>
-                    <button>Deletar</button>
+                    <button className="del">Deletar</button>
                 </div>
             </div>
         </div>
