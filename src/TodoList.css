@@ -2,6 +2,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+*:focus {
+    outline: none;
+}
+
 body {
     background-color: #222435;
     font: normal 16px Roboto, sans-serif;
@@ -15,9 +19,11 @@ h1 {
 
 form {
     display: flex;
+    position: relative;
     width: 600px;
-    height: 40px;
+    height: 60px;
     margin: 30px auto;
+    margin-bottom: 60px;
 }
 
 input {
@@ -26,7 +32,33 @@ input {
     height: 60px;
     background-color: #2d3046;
     border: none;
+    border-radius: 10px;
     padding-left: 30px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+button.add {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #363b65;
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px 25px;
+    height: 61px;
+}
+
+button.add:hover {
+    color: #ffffff;
+    background-color: #363f88;
+}
+
+.lista-tarefas {
+    
 }
 
     @media screen and (max-width: 900px) {
