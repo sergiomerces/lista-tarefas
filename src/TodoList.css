@@ -38,6 +38,10 @@ input {
     color: #ffffff;
 }
 
+img.icone-central {
+    width: 100%;
+}
+
 button.add {
     position: absolute;
     top: 0;

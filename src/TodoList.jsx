@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./TodoList.css";
 import Icone from "./assets/checklist.svg"
 
 function TodoList() {
 
-    const [lista, setLista] = useState([]);
+    const listaStorage = localStorage.getItem("Lista");
+
+    const [lista, setLista] = useState(listaStorage ? JSON.parse(listaStorage) : []);
     const [novoItem, setNovoItem] = useState("");
+
+    useEffect(() => {
+        localStorage.setItem("lista", JSON.stringify(lista));
+    }, [lista])
 
     function adicionaItem(form) {
         form.preventDefault();
@@ -17,6 +23,22 @@ function TodoList() {
         setLista([...lista, { text: novoItem, isCompleted: false }])
         setNovoItem("");
         document.getElementById('input-entrada').focus();
+    }
+
+    function clicou(index) {
+        const listaAux = [...lista];
+        listaAux[index].isCompleted = !listaAux[index].isCompleted;
+        setLista(listaAux);
+    }
+
+    function deleta(index) {
+        const listaAux = [...lista];
+        listaAux.splice(index, 1);
+        setLista(listaAux);
+    }
+
+    function deletaTudo() {
+        setLista([]);
     }
 
     return (
@@ -36,21 +58,23 @@ function TodoList() {
                 {
                     lista.length < 1
                         ?
-                        <img src={Icone} />
+                        <img className="icone-central" src={Icone} />
                         :
                         lista.map((item, index) => (
-                            <div className="item">
-                                <span>Tarefa de Exemplo</span>
-                                <button className="del">Deletar</button>
+                            <div
+                            key={index} 
+                            className={item.isCompleted ? "item-completo" : "item"}
+                            >
+                                <span onClick={() => {clicou(index)}}>{item.text}</span>
+                                <button className="del" onClick={() => {deleta(index)}}>Deletar</button>
                             </div>
                         ))
                 }
+                {
+                    lista.length !== 0 &&
+                    <button className="deleteAll" onClick={() => {deletaTudo()}}>Deletar Todas</button>
+                }
                 
-                <div className="item-completo">
-                    <span>Tarefa de Exemplo</span>
-                    <button className="del">Deletar</button>
-                </div>
-                <button className="deleteAll">Deletar Todas</button>
             </div>
         </div>
     )
