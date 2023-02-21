@@ -21,6 +21,7 @@ function TodoList() {
                     <span>Tarefa de Exemplo</span>
                     <button className="del">Deletar</button>
                 </div>
+                <button className="deleteAll">Deletar Todas</button>
             </div>
         </div>
     )
